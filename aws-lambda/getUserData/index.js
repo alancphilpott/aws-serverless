@@ -36,7 +36,7 @@ exports.handler = function (event, context, callback) {
         }
     };
 
-    documentClient.getItem(params, (err, data) => {
+    documentClient.get(params, (err, data) => {
         err ? console.log(err, err.stack) : console.log(data);
     });
 };
@@ -56,7 +56,7 @@ exports.handler = async (event, context) => {
     };
 
     try {
-        const data = await documentClient.getItem(params).promise();
+        const data = await documentClient.get(params).promise();
         console.log(data);
     } catch (err) {
         console.log(err, err.stack);
